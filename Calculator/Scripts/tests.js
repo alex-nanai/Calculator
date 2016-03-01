@@ -12,10 +12,25 @@ test("Number button click should add number to txtInput", function () {
     }
 });
 
+test("Initial result is 0", function() {
+    expect(1);
+    equal(txtInput.value, "0");
+});
+
 test("Add test", function () {
     expect(1);
     txtInput.value = "20";
     txtResult.value = "30";
     QUnit.triggerEvent(btnPlus, "click");
     equal(txtResult.value, "50");
+});
+
+test("Input is cleared after each operation", function() {
+    expect(1);
+    txtInput.value = "20";
+    QUnit.triggerEvent(btnPlus, "click");
+    equal(txtInput.value, "");
+    //txtInput.value = "20";
+    //QUnit.triggerEvent(btnMinus, "click");
+    //equal(txtInput.value, "");
 });
